@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'view', 'build')));
 
 // API-роути
-app.get('/api/example', (req, res) => {
-    res.json({ message: 'Привіт, це API!' });
+app.get('/example', (req, res) => {
+    res.json({ message: 'hi, this is api' });
 });
 
 // give React SPA
@@ -20,4 +20,4 @@ app.get('*', (req, res) => {
 
 // start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Сервер працює на порту ${PORT}`));
+app.listen(PORT, () => console.log(`server port: ${PORT}`));
