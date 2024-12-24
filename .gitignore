@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # React
-#/view/build/
+/view/build/
 *.log
 
 # System files
