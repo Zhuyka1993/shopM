@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # React
-/view/build/
+#/view/build/
 *.log
 
 # System files
@@ -14,3 +14,6 @@ yarn-error.log*
 Thumbs.db
 .vscode/
 .idea/
+
+# Build files
+/dist/
