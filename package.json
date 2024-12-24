@@ -4,12 +4,43 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:dev": "cross-env NODE_ENV=development node server.js",
+    "start:prod": "cross-env NODE_ENV=production node server.js",
+    "start": "webpack serve --mode development --open",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "eject": "react-scripts eject",
+    "start-server": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4",
+    "multer": "^1.4.5-lts.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "babel-loader": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "css-loader": "^7.1.2",
+    "html-webpack-plugin": "^5.6.3",
+    "react-refresh": "^0.14.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-middleware": "^7.4.2",
+    "webpack-dev-server": "^5.1.0",
+    "webpack-hot-middleware": "^2.26.1"
   }
 }
