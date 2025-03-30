@@ -15,7 +15,7 @@ const HeaderComponent = () => {
                 <NavLink hrefCurt="/home" content="Products" isImage={false} /> 
                 <NavLink hrefCurt="/about" content="Our Culture|Our Promise" isImage={false} />
                 <NavLink hrefCurt="/services" content={person} isImage={true} />
-                <NavLink hrefCurt="/contact" content={curt} isImage={true} /> 
+                <NavLink hrefCurt="/curt" content={curt} isImage={true} /> 
             </div>
         </div>
     );
