@@ -15,7 +15,7 @@ const Card = ({ image, title, description, price, isEmpty = false,  onClose, chi
         <p className="product-price">{price ? `${price} грн` : null}</p>
       </div>
           {children}
-      <button onClick={onClose}>Close</button>    
+         { /* <button onClick={onClose}>Close</button>    */}
     </div>
   );
 };

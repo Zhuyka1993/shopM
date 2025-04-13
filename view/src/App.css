@@ -1,37 +1,32 @@
 :root {
-  --main-color: #ff6f00; 
+  --main-color: #ff6f00;
 }
 
-*{ 
+* {
   scroll-behavior: smooth;
-} 
+}
 
-
-.headerContainer { 
+.headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo img { 
+.logo img {
   width: 100px;
 }
 
-.navigationContainer a { 
+.navigationContainer a,
+.navigationContainerHeader a {
   color: grey;
   text-decoration: none;
   font-weight: bold;
   margin: 10px;
-  
+  transition: color 0.2s ease;
 }
 
-.navigationContainer a img { 
-  background: linear-gradient(
-    to right, 
-    #FFC266, 
-    var(--main-color), 
-    #cc6300 
-  );
+.navigationContainer a img {
+  background: linear-gradient(to right, #ffc266, var(--main-color), #cc6300);
   width: 35px;
   height: 35px;
   border-radius: 50%;
@@ -44,15 +39,10 @@
   margin: 16px;
 }
 
-.round { 
+.round {
   width: 300px;
   height: 300px;
-  background: linear-gradient(
-    to right, 
-    #FFC266, 
-    var(--main-color), 
-    #cc6300 
-  );
+  background: linear-gradient(to right, #ffc266, var(--main-color), #cc6300);
   z-index: 0;
   border-radius: 50%;
   margin-left: 30px;
@@ -99,11 +89,10 @@
   background-color: #218838;
 }
 
-
-.container-price { 
+.container-price {
   display: flex;
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .selectbox {
@@ -160,103 +149,94 @@
   display: block;
 }
 
-
-.containerIntroCart { 
+.containerIntroCart {
   padding: 10%;
   display: flex;
 }
-
-.containerProductList { 
+.containerIntroCart .introCurtLeftSide h3 {
+  color: var(--main-color);
+}
+.containerProductList {
   display: flex;
-    flex-wrap: wrap;
-   
+  flex-wrap: wrap;
 }
 
-.introCurtLeftSide { 
+.introCurtLeftSide {
   width: 30%;
 }
 
-.introCurtLeftSide h1 { 
+.introCurtLeftSide h1 {
   display: block;
   width: 150px;
   font-size: 50px;
 }
- .introCardLeftSide h3 { 
-  color: var(--main-color);
-}
-.introCardRightSide .product-card .round { 
-  width:450px ;
+
+.introCardRightSide .product-card .round {
+  width: 450px;
   height: 450px;
   display: flex;
   justify-content: center;
-  
 }
 
-.introCardRightSide .product-card .round img { 
+.introCardRightSide .product-card .round img {
   width: 150%;
   margin-bottom: -30px;
-
- 
-
 }
 
-.containerProductType { 
+.containerProductType {
   display: flex;
   justify-content: space-around;
+  min-height: 70vh;
 }
 
-
-
-.petHouse , .petBone , .petBelt { 
+.petHouse,
+.petBone,
+.petBelt {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.step-icon { 
+.step-icon {
   width: 100px;
   height: 100px;
 }
 
-.petHouse a, .petBone a, .petBelt a {
-display: flex;
-flex-direction: column;
-align-items: center;
-color: black;
-font-size: 25px;
-font-weight: bold;
-text-decoration: none;
+.petHouse a,
+.petBone a,
+.petBelt a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: none;
 }
-
-
-
-
 
 /* ANIMATION CODE */
 
-
-.parent2Ball { 
+.parent2Ball {
   width: 300px; /* Розмір контейнера */
   height: 300px;
   position: absolute;
-  
-  margin:  0 auto;
+
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-    justify-content: space-around;
-  
+  justify-content: space-around;
 }
 
-.parent { 
+.parent {
   width: 500px; /* Розмір контейнера */
   height: 500px;
-  
+
   position: absolute;
- z-index: 99;
+  z-index: 99;
 }
 
-.circle{ 
+.circle {
   width: 20px; /* Розмір кульки */
   height: 20px;
   background-color: orange; /* Колір кульки */
@@ -265,15 +245,14 @@ text-decoration: none;
   transition: transform 0.5s ease; /* Плавний ефект при наведенні */
 }
 
-
-
 /* Початкове положення кульок */
 .circle:nth-child(1) {
   top: 50px; /* Початкове розташування першої кульки */
   left: 450px;
 }
-.circle1, .circle2 {
-  background-color: orange; 
+.circle1,
+.circle2 {
+  background-color: orange;
   opacity: 0;
   width: 20px;
   height: 20px;
@@ -281,19 +260,14 @@ text-decoration: none;
   margin: 0 auto;
   z-index: 100;
   position: relative;
- margin-left: 70%;
- border-radius: 50%;
+  margin-left: 70%;
+  border-radius: 50%;
 }
-
 
 .circle:nth-child(2) {
-  
   width: 50px;
   height: 50px;
-
-
 }
-
 
 .circle:nth-child(3) {
   width: 70px;
@@ -314,23 +288,17 @@ text-decoration: none;
   animation: float-hover-1 3s ease-in-out infinite alternate;
 }
 
-
-.parent2Ball:hover .circle1{ 
+.parent2Ball:hover .circle1 {
   transform: translate(200px, -100px); /* Кінцева точка першої кульки */
   transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
   opacity: 1;
-  
-
 }
 
-.parent2Ball:hover .circle2{ 
+.parent2Ball:hover .circle2 {
   transform: translate(100px, 50px); /* Кінцева точка першої кульки */
   transition: transform 0.5s ease-out;
   opacity: 1;
 }
-
-
-
 
 .parent:hover .circle:nth-child(2) {
   transform: translate(-100px, 100px); /* Кінцева точка другої кульки */
@@ -341,8 +309,6 @@ text-decoration: none;
   transform: translate(150px, -100px); /* Кінцева точка третьої кульки */
   animation: float-hover-3 2.3s ease-in-out infinite alternate;
 }
-
-
 
 /* Індивідуальні анімації для кожної кульки */
 @keyframes float-hover-1 {
@@ -372,30 +338,25 @@ text-decoration: none;
   }
 }
 
-
-
-
-
-
 /* END OF ANIMATION STYLE */
 
-.containerPet { 
+.containerPet {
   display: flex;
-  max-width: 80%;
-  justify-content: space-between;
-  margin-top: 50px;
+
+  justify-content: space-around;
+  height: 60vh;
 }
 
-.animalContainer { 
+.animalContainer {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.animalContainer a { 
+.animalContainer a {
   text-decoration: none;
 }
-.upDownContainer { 
+.upDownContainer {
   position: absolute;
   display: flex;
   text-decoration: none;
@@ -403,48 +364,40 @@ text-decoration: none;
   height: 50px;
 }
 
-.down, .up { 
+.down,
+.up {
   transition: 0.5s ease; /* Плавність переходу*/
   font-size: 45px;
   font-weight: 700;
   color: #000;
-  
+
   /*transition: transform 1.5s ease;
   /*transform: translateY(0); /* Початкове положення */
 }
 
-.animalContainer a .round { 
+.animalContainer a .round {
   background: #e1dede;
-  
 }
 
-.animalContainer:hover a .round { 
+.animalContainer:hover a .round {
   transition: ease 1s;
   background: linear-gradient(
-    to right, 
-    #FFC266, 
-    var(--main-color), /* Основний колір */
-    #cc6300 
+    to right,
+    #ffc266,
+    var(--main-color),
+    /* Основний колір */ #cc6300
   );
 }
 
-
-.animalContainer:hover a .round .upDownContainer .up { 
+.animalContainer:hover a .round .upDownContainer .up {
   margin-top: -7px;
-  
 }
 
-
-.animalContainer:hover a .round .upDownContainer .down { 
+.animalContainer:hover a .round .upDownContainer .down {
   padding-top: 7px;
 }
 
-
-
-
-
-
-.containerPet .animalContainer:nth-child(1) img { 
+.containerPet .animalContainer:nth-child(1) img {
   width: 350px;
   height: 350px;
 }
@@ -452,10 +405,9 @@ text-decoration: none;
 .containerPet .animalContainer:nth-child(2) img {
   display: flex;
   margin: 0 auto;
-  
 }
 
-.text-container button{ 
+.text-container button {
   text-decoration: none;
   color: grey;
   font-size: 30px;
@@ -465,21 +417,19 @@ text-decoration: none;
   cursor: pointer;
 }
 
-
-.text-container:hover button .leftElement{ 
+.text-container:hover button .leftElement {
   color: var(--main-color);
-
 }
 
-.textTotal { 
+.textTotal {
   font-size: 25px;
   font-weight: 700;
 }
 
-.summaryPrice { 
-font-size: 30px;
-font-weight: 900;
-color: var(--main-color);
+.summaryPrice {
+  font-size: 30px;
+  font-weight: 900;
+  color: var(--main-color);
 }
 
 /* Burger Menu */
@@ -521,18 +471,38 @@ color: var(--main-color);
   background-color: #f0f0f0; /* Фон при наведенні світло-сірий */
 }
 
-
 /* End of Burger */
 
-
-.footerContainer { 
-  
+.footerContainer {
   display: flex;
-  height: 300px;
   justify-content: center;
   align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  left: 20%;
+  width: 900px;
 }
 
-.navigationContainer { 
+.navigationContainer {
   display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.navigationContainerHeader {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigationContainerHeader a:hover,
+.navigationContainer a:hover {
+  color: var(--main-color);
+}
+
+.navigationContainerHeader a img {
+  background: linear-gradient(to right, #ffc266, var(--main-color), #cc6300);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
 }
