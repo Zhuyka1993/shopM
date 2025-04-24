@@ -10,13 +10,13 @@ const ProductType = ({ name, imageUrl, href }) => {
 
     
       <Link to={href}>
-        <div className="step-icon">
+        <div className="stepIcon">
           <img
             src={imageUrl}
           />
         </div>
         <span>{name}</span>
-        <div className="category-link">   
+        <div className="categoryLink">   
         </div>
       </Link>
       
