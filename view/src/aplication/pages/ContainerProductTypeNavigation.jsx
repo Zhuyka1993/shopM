@@ -10,7 +10,7 @@ const ContainerProductTypeNavigation = () => {
         <>
             <HeaderComponent/>
             <div className='containerProductType'>
-                <ProductType name="Belt" href="http://localhost:5000/cardList" imageUrl="https://showcase.nikitinteam.com/cases/astropets/image/catalog/wear.svg"/> 
+                <ProductType name="Belt" href="/cardList" imageUrl="https://showcase.nikitinteam.com/cases/astropets/image/catalog/wear.svg"/> 
                 <ProductType name="Sleep" href="/SleepProducts" imageUrl="https://showcase.nikitinteam.com/cases/astropets/image/catalog/sleep.svg"/> 
                 <ProductType name="Bones" href="/empty" imageUrl="https://showcase.nikitinteam.com/cases/astropets/image/catalog/play.svg"/> 
             </div>
