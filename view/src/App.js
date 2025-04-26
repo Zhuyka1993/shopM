@@ -37,7 +37,7 @@ function App() {
         />
         <Route path="/cardList" element={<CardList />} />
 
-        <Route path="/SleepProducts" element={<SleepProductPage />} />
+        <Route path="/sleepProducts" element={<SleepProductPage />} />
       </Routes>
 
       {/* <ProductTypeContainer /> */}

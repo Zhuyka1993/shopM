@@ -11,7 +11,7 @@ const HeaderComponent = () => {
             <div className="logo">     
                 <img src={logo} alt="Logo" />
             </div>
-            <div className="navigationContainer">
+            <div className="navigationContainerHeader">
                 <NavLink hrefCurt="/home" content="Products" isImage={false} /> 
                 <NavLink hrefCurt="/about" content="Our Culture|Our Promise" isImage={false} />
                 <NavLink hrefCurt="/services" content={person} isImage={true} />
