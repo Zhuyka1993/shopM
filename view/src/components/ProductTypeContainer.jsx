@@ -9,7 +9,7 @@ const ProductTypeContainer = () => {
     return (
         <div className="containerPet">
             <ProductTypeMain name="Dog" image={ImageDog} href="/productsNav" />
-            <ProductTypeMain name="CAT" image={ImageCat} />
+            <ProductTypeMain name="CAT" image={ImageCat} href="/addProduct"/>
         </div>
     )}
 

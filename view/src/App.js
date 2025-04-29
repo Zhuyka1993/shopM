@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import CardList from "./modules/card-list";
-import HomePage from "./aplication/pages/home.jsx";
+import HomePage from "./aplication/pages/HomePage";
 import SleepProductPage from "./aplication/pages/SleepProductPage.jsx";
 import EmptyShoppingCurt from "./components/EmptyShoppingCurt.jsx";
 import TextContainer from "./components/TextContainer.jsx";
@@ -19,15 +19,14 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <>
+      <HeaderComponent />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
           path="/curt"
           element={
             <>
-              <HeaderComponent />
               <EmptyShoppingCurt />
-              <FooterComponent />
             </>
           }
         />
@@ -35,9 +34,11 @@ function App() {
           path="/productsNav"
           element={<ContainerProductTypeNavigation />}
         />
-        <Route path="/cardList" element={<CardList />} />
-
+        <Route path="/addProduct" element={<InputFields />} />
+        <Route path="/products" element={<CardList />} />
         <Route path="/sleepProducts" element={<SleepProductPage />} />
+        {/*<Route path="*" element={<ErrorPage />} />*/}
+        {/* Cleary understand,  we need to create also ErrorPage component */}
       </Routes>
 
       {/* <ProductTypeContainer /> */}
@@ -55,6 +56,7 @@ function App() {
         <InputFields />
         <BurgerMenu />
         <EmptyShoppingCurt /> */}
+      <FooterComponent />
     </>
   );
 }
