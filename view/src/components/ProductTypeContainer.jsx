@@ -8,7 +8,7 @@ import ImageCat from '../images/cat2.png';
 const ProductTypeContainer = () => {
     return (
         <div className="containerPet">
-            <ProductTypeMain name="Dog" image={ImageDog} href="/productsNav" />
+            <ProductTypeMain name="DOG" image={ImageDog} href="/productsNav" />
             <ProductTypeMain name="CAT" image={ImageCat} href="/addProduct"/>
         </div>
     )}
