@@ -37,26 +37,10 @@ function App() {
         <Route path="/addProduct" element={<InputFields />} />
         <Route path="/products" element={<CardList />} />
         <Route path="/sleepProducts" element={<SleepProductPage />} />
-        {/*<Route path="*" element={<ErrorPage />} />*/}
-        {/* Cleary understand,  we need to create also ErrorPage component */}
       </Routes>
-
-      {/* <ProductTypeContainer /> */}
-
-      {/* <TextContainer 
-          leftElement="+" 
-          rightElement="Continue Shopping"
-        />
-        <TextContainer 
-          leftElement="←" 
-          rightElement="Back"
-        />
-
-        <TotalPrice price="10" />
-        <InputFields />
-        <BurgerMenu />
-        <EmptyShoppingCurt /> */}
+       {/* <BurgerMenu /> */}
       <FooterComponent />
+      
     </>
   );
 }
