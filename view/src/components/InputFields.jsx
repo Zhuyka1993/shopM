@@ -8,6 +8,8 @@ const InputFields = () => {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
+  const [type, setType] = useState('');
+
 
   // Функція обробки події відправлення форми
   const handleSubmit = async (e) => {
@@ -19,6 +21,8 @@ const InputFields = () => {
     formData.append('description', description);
     formData.append('price', price);
     formData.append('image', image);
+    formData.append('type', type);
+
 
     try {
       // Відправляємо дані на сервер
@@ -71,6 +75,15 @@ const InputFields = () => {
             required // Поле обов'язкове для заповнення
           />
         </div>
+        <div>
+          <label>Тип товару</label>
+          <select value={type} onChange={(e) => setType(e.target.value)} required>
+          <option value="">Оберіть тип</option>
+          <option value="Belt">Belt</option>
+          <option value="Sleep">Sleep</option>
+          <option value="Bones">Bones</option>
+  </select>
+</div>
         <button type="submit">Відправити</button>
       </form>
     </div>

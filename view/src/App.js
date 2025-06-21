@@ -10,11 +10,14 @@ import ProductType from "./components/ProductType.jsx";
 import TotalPrice from "./components/TotalPrice.jsx";
 import BurgerMenu from "./components/BurgerMenu.jsx";
 import Preloader from "./components/Preloader.jsx";
+import ContainerBonesProduct from "./aplication/pages/ContainerBonesProduct.jsx";
 import ContainerProductTypeNavigation from "./aplication/pages/ContainerProductTypeNavigation.jsx";
 import InputFields from "./components/InputFields.jsx";
 import HeaderComponent from "./components/headerComponent";
 import FooterComponent from "./components/FooterComponent";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import ContainerSleepProduct from "./aplication/pages/ContainerSleepProduct.jsx";
+import ContainerWearProduct from "./aplication/pages/ContainerWearProduct.jsx";
 
 function App() {
   return (
@@ -34,9 +37,13 @@ function App() {
           path="/productsNav"
           element={<ContainerProductTypeNavigation />}
         />
+        {/* ---нижче треба змінити роути і назви сторінок для 3-х категорій, тож поки що робимо сторінки:) */}
         <Route path="/addProduct" element={<InputFields />} />
         <Route path="/products" element={<CardList />} />
-        <Route path="/sleepProducts" element={<SleepProductPage />} />
+        <Route path="/sleepProducts" element={<ContainerSleepProduct />} />
+        <Route path="/bonesProducts" element={<ContainerBonesProduct />} />
+        <Route path="/wearProducts" element={<ContainerWearProduct />} />
+
       </Routes>
        {/* <BurgerMenu /> */}
       <FooterComponent />

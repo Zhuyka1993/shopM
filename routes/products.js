@@ -18,7 +18,7 @@ const upload = multer({ storage: storage });
 
 // Маршрут для створення нового продукту
 router.post('/add', upload.single('image'), async (req, res) => {
-  const { title, description, price } = req.body;
+  const { title, description, price, type } = req.body;
   const imageUrl = path.join('uploads/images', req.file.filename);
 
   try {
@@ -26,7 +26,8 @@ router.post('/add', upload.single('image'), async (req, res) => {
       title,
       description,
       price,
-      imageUrl
+      imageUrl,
+      type,
     });
 
     await newProduct.save();
@@ -36,12 +37,44 @@ router.post('/add', upload.single('image'), async (req, res) => {
   }
 });
 
+// /api/products/sleep
+router.get('/sleep', async (req, res) => {
+  try {
+    const products = await Product.find({ type: 'Sleep' });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// /api/products/belt
+router.get('/wear', async (req, res) => {
+  try {
+    const products = await Product.find({ type: 'Belt' });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+// /api/products/bones
+router.get('/bones', async (req, res) => {
+  try {
+    const products = await Product.find({ type: 'Bones' });
+    res.json(products);
+  } catch (err) {
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
 // Маршрут для отримання всіх продуктів
  router.get('/', async (req, res) => {
    try
     { const products = await Product.find();
    res.status(200).json(products);
    } catch (error) {
-     res.status(500).json({ error: 'Щось пішло не так' }); } });
+     res.status(500).json({ error: 'Щось пішло не так' });
+    
+    } });
 
 module.exports = router;
