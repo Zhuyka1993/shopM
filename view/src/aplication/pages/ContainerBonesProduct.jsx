@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import Card from '../../components/Card';
 import BuyButton from '../../components/BuyButton';
-
-
-import HeaderComponent from "../../components/headerComponent";
-import FooterComponent from "../../components/FooterComponent";
-
 
 const ContainerBonesProduct = () => {
      const [products, setProducts] = useState([]);
@@ -30,25 +24,21 @@ const ContainerBonesProduct = () => {
     setProducts(filteredData);
   };
 
-  return (
-    <>
-      
-
-      <div className='containerProductList'>
-        {products.map((product) => (
-          <Card
-            key={product._id}
-            image={`/${product.imageUrl}`}
-            title={product.title}
-            description={product.description}
-            price={product.price}
-          >
-            <BuyButton onBuy={() => console.log(`Куплено товар ${product.title}`)} />
-          </Card>
-        ))}
-      </div>
-
-    </>
-  );}
+return (
+  <div className='containerProductList'>
+    {products.map(({ _id, imageUrl, title, description, price }) => (
+      <Card
+        key={_id}
+        image={`/${imageUrl}`}
+        title={title}
+        description={description}
+        price={price}
+      >
+        <BuyButton onBuy={() => console.log(`Куплено товар ${title}`)} />
+      </Card>
+    ))}
+  </div>
+);
+;}
 
     export default ContainerBonesProduct;

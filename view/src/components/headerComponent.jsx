@@ -12,7 +12,7 @@ const HeaderComponent = () => {
                 <img src={logo} alt="Logo" />
             </div>
             <div className="navigationContainerHeader">
-                <NavLink hrefCurt="/home" content="Products" isImage={false} /> 
+                <NavLink hrefCurt="/products" content="Products" isImage={false} /> 
                 <NavLink hrefCurt="/about" content="Our Culture|Our Promise" isImage={false} />
                 <NavLink hrefCurt="/services" content={person} isImage={true} />
                 <NavLink hrefCurt="/curt" content={curt} isImage={true} /> 

@@ -28,9 +28,6 @@ const ContainerSleepProduct = () => {
   };
 
   return (
-    <>
-      
-
       <div className='containerProductList'>
         {products.map((product) => (
           <Card
@@ -44,9 +41,8 @@ const ContainerSleepProduct = () => {
           </Card>
         ))}
       </div>
-
-    </>
-  );}
+  );
+}
 
 
 export default ContainerSleepProduct;

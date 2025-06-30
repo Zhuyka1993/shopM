@@ -37,12 +37,13 @@ function App() {
           path="/productsNav"
           element={<ContainerProductTypeNavigation />}
         />
-        {/* ---нижче треба змінити роути і назви сторінок для 3-х категорій, тож поки що робимо сторінки:) */}
         <Route path="/addProduct" element={<InputFields />} />
         <Route path="/products" element={<CardList />} />
         <Route path="/sleepProducts" element={<ContainerSleepProduct />} />
         <Route path="/bonesProducts" element={<ContainerBonesProduct />} />
         <Route path="/wearProducts" element={<ContainerWearProduct />} />
+        <Route path="/test" element={<SleepProductPage />} />
+        
 
       </Routes>
        {/* <BurgerMenu /> */}
