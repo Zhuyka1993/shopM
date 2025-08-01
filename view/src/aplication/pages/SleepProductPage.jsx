@@ -14,10 +14,10 @@ function SleepProductPage() {
       bigH="Upgrade your pet and make it more stylish"
       image={Image} />
         <div className="buttonContainer">
-          <a href=''>All</a>
-          <a href='/test'>Sleep</a>
+          <a href='/test'>All</a>
+          <a href='/sleepProducts'>Sleep</a>
           <a href=''>Play</a>
-          <a href=''>Wear</a>
+          <a href='/bonesProducts'>Wear</a>
         </div>
       <CardList />
     </>
