@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import Card from '../../components/Card';
 import BuyButton from '../../components/BuyButton';
 
-
-
 const ContainerSleepProduct = () => {
-     const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const fetchSleepProducts = async () => {
     try {

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-// Компонент ProductForm
 const InputFields = () => {
   // Визначаємо стан для заголовка, опису, ціни та файлу зображення
   const [title, setTitle] = useState('');
@@ -46,7 +45,7 @@ const InputFields = () => {
             type="text" 
             value={title} 
             onChange={(e) => setTitle(e.target.value)} 
-            required // Поле обов'язкове для заповнення
+            required 
           />
         </div>
         <div>
@@ -55,7 +54,7 @@ const InputFields = () => {
             type="text" 
             value={description} 
             onChange={(e) => setDescription(e.target.value)} 
-            required // Поле обов'язкове для заповнення
+            required 
           />
         </div>
         <div>
@@ -64,7 +63,7 @@ const InputFields = () => {
             type="number" 
             value={price} 
             onChange={(e) => setPrice(e.target.value)} 
-            required // Поле обов'язкове для заповнення
+            required 
           />
         </div>
         <div>
@@ -72,7 +71,7 @@ const InputFields = () => {
           <input 
             type="file" 
             onChange={(e) => setImage(e.target.files[0])} 
-            required // Поле обов'язкове для заповнення
+            required 
           />
         </div>
         <div>

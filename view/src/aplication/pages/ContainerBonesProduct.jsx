@@ -4,7 +4,7 @@ import Card from '../../components/Card';
 import BuyButton from '../../components/BuyButton';
 
 const ContainerBonesProduct = () => {
-     const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const fetchBonesProducts = async () => {
     try {

@@ -4,7 +4,7 @@ import curt from '../images/curt.svg';
 import person from '../images/person.svg';
 import logo from "../images/logo.png";
 
-// Компонент Preloader
+
 const HeaderComponent = () => {
     return ( 
         <div className="headerContainer">

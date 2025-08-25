@@ -1,10 +1,6 @@
 import React from "react";
 import ProductType from "../../components/ProductType";
 
-
-
-
-
 const ContainerProductTypeNavigation = () => {
     return (
         <>

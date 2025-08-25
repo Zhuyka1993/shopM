@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import Card from '../../components/Card';
 import BuyButton from '../../components/BuyButton';
-
-
 
 const ContainerWearProduct = () => {
      const [products, setProducts] = useState([]);

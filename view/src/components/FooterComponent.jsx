@@ -3,7 +3,7 @@ import NavLink from "./NavLink";
 import person from '../images/person.svg';
 import logo from "../images/logo.png";
 import curt from '../images/curt.svg';
-// Компонент Preloader
+
 const FooterComponent = () => {
     return ( 
         <div className="footerContainer">

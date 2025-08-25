@@ -34,10 +34,7 @@ function App() {
             </>
           }
         />
-        <Route
-          path="/productsNav"
-          element={<ContainerProductTypeNavigation />}
-        />
+        <Route path="/productsNav"  element={<ContainerProductTypeNavigation/>} />
         <Route path="/addProduct" element={<InputFields />} />
         <Route path="/products" element={<ProductTypeNavigation />} />
         <Route path="/sleepProducts" element={<ContainerSleepProduct />} />

@@ -45,29 +45,25 @@ function ProductTypeNavigation() {
         </button>
       </div>
 
-      {/* Тут рендеримо відповідний компонент залежно від вибраної кнопки */}
+      
       <div className="product-type-content">
         {activeTab === "all" && (
           <>
-            {/* 👇 встав сюди компонент для All */}
             { <CardList /> }
           </>
         )}
         {activeTab === "sleep" && (
           <>
-            {/* 👇 встав компонент Sleep */}
             { <ContainerSleepProduct /> }
           </>
         )}
         {activeTab === "bones" && (
           <>
-            {/* 👇 встав компонент Bones */}
             { <ContainerBonesProduct /> }
           </>
         )}
         {activeTab === "wear" && (
           <>
-            {/* 👇 встав компонент Wear */}
             { <ContainerWearProduct /> }
           </>
         )}
