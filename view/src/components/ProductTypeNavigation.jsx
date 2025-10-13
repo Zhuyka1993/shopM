@@ -6,9 +6,16 @@ import ContainerWearProduct from "../aplication/pages/ContainerWearProduct";
 import CardList from "../modules/card-list/index";
 import Image from "../images/doggg.png";
 
+const TABS = {
+  SLEEP: 'sleep',
+  WEAR: 'wear',
+  All: 'all',
+  BONES: 'bones',
+}
+
 
 function ProductTypeNavigation() {
-  const [activeTab, setActiveTab] = useState("all");
+  const [activeTab, setActiveTab] = useState(TABS.All);
 
   return (
     <>
@@ -20,25 +27,25 @@ function ProductTypeNavigation() {
 
       <div className="product-type-nav">
         <button
-          className={activeTab === "all" ? "active" : ""}
+          className={activeTab === TABS.All ? "active" : ""}
           onClick={() => setActiveTab("all")}
         >
           All
         </button>
         <button
-          className={activeTab === "sleep" ? "active" : ""}
+          className={activeTab === TABS.SLEEP ? "active" : ""}
           onClick={() => setActiveTab("sleep")}
         >
           Sleep
         </button>
         <button
-          className={activeTab === "bones" ? "active" : ""}
+          className={activeTab === TABS.BONES ? "active" : ""}
           onClick={() => setActiveTab("bones")}
         >
           Bones
         </button>
         <button
-          className={activeTab === "wear" ? "active" : ""}
+          className={activeTab === TABS.WEAR ? "active" : ""}
           onClick={() => setActiveTab("wear")}
         >
           Wear

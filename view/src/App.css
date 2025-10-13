@@ -18,6 +18,28 @@
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
+
+.cartIconWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cartCountBadge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4b4b;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .logo img {
   width: 100px;
 }
