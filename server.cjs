@@ -9,51 +9,61 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const productRoutes = require("./routes/products");
+require("dotenv").config();
+
 
 const app = express();
 
 // Middleware for JSON
 app.use(express.json());
 
+const cookieParser = require("cookie-parser");
+require("dotenv").config();
+
+app.use(cookieParser());
+
 // Визначаємо середовище
 const isDevelopment = process.env.NODE_ENV !== "production";
 
-// 🔥 Підключення MongoDB
+//  Підключення MongoDB
+// Підключення MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(
-      "mongodb+srv://CatDog:5195454Qq@catdog.my02agn.mongodb.net/catdog?retryWrites=true&w=majority&appName=CatDog",
-      {
-        serverSelectionTimeoutMS: 10000,
-      }
-    );
-    console.log("✅ MongoDB підключено");
+    await mongoose.connect(process.env.MONGO_URI, {
+      serverSelectionTimeoutMS: 10000,
+    });
+    console.log(" MongoDB підключено");
   } catch (err) {
-    console.error("❌ Помилка підключення до MongoDB:", err.message);
+    console.error(" Помилка підключення до MongoDB:", err.message);
   }
 };
 
 connectDB();
 
-// 📦 Middleware
+
+//  Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// 📁 Завантаження зображень
+//  Завантаження зображень
 const uploadPath = path.join(__dirname, "uploads", "images");
 if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath, { recursive: true });
 }
 app.use("/uploads", express.static("uploads"));
 
-// 📦 API-маршрути
+// API-маршрути
 app.use("/api/products", productRoutes);
 app.get("/example", (req, res) => {
   res.json({ message: "hi, this is api" });
 });
 
-// ⚙️ Webpack Dev Middleware (DEV)
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
+
+
+//  Webpack Dev Middleware (DEV)
 if (isDevelopment) {
   const compiler = webpack(webpackConfig);
   app.use(
@@ -64,7 +74,7 @@ if (isDevelopment) {
   app.use(webpackHotMiddleware(compiler));
 }
 
-// 🚀 React SPA (PROD)
+//  React SPA (PROD)
 if (!isDevelopment) {
   const buildPath = path.join(__dirname, "view", "build");
 

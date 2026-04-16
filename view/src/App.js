@@ -18,35 +18,55 @@ import FooterComponent from "./components/FooterComponent";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import ContainerSleepProduct from "./aplication/pages/ContainerSleepProduct.jsx";
 import ContainerWearProduct from "./aplication/pages/ContainerWearProduct.jsx";
-import ProductTypeNavigation from "./components/ProductTypeNavigation.jsx"
+import ProductTypeNavigation from "./components/ProductTypeNavigation.jsx";
+import Login from "./components/Login.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+
 
 function App() {
+  const [user, setUser] = React.useState(() => {
+    const stored = localStorage.getItem("user");
+    return stored ? JSON.parse(stored) : null;
+  });
+
+  const handleLogin = (userData) => {
+    setUser(userData);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    setUser(null);
+  };
+
   return (
     <>
-      <HeaderComponent />
+      <HeaderComponent user={user} onLogout={handleLogout} />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/curt" element={<EmptyShoppingCurt />} />
+        <Route path="/productsNav" element={<ContainerProductTypeNavigation />} />
         <Route
-          path="/curt"
-          element={
-            <>
-              <EmptyShoppingCurt />
-            </>
-          }
-        />
-        <Route path="/productsNav"  element={<ContainerProductTypeNavigation/>} />
-        <Route path="/addProduct" element={<InputFields />} />
+  path="/addProduct"
+  element={
+    <ProtectedRoute user={user}>
+      <InputFields />
+    </ProtectedRoute>
+  }
+/>
         <Route path="/products" element={<ProductTypeNavigation />} />
         <Route path="/sleepProducts" element={<ContainerSleepProduct />} />
         <Route path="/bonesProducts" element={<ContainerBonesProduct />} />
         <Route path="/wearProducts" element={<ContainerWearProduct />} />
         <Route path="/test" element={<SleepProductPage />} />
-        
+        <Route path="/empty" element={<EmptyShoppingCurt />} />
+        <Route path="/login" element={<Login onLogin={handleLogin} />}
+/>
 
       </Routes>
-       {/* <BurgerMenu /> */}
+
       <FooterComponent />
-      
     </>
   );
 }

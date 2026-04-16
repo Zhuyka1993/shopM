@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require('multer');
 const Product = require('../models/product');
 const path = require('path');
+const { requireAuth, requireAdmin } = require("../middleware/auth");
+
 
 // Налаштування для multer (для завантаження файлів)
 const storage = multer.diskStorage({
@@ -17,9 +19,14 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Маршрут для створення нового продукту
-router.post('/add', upload.single('image'), async (req, res) => {
+router.post(
+  '/add',
+  requireAuth,
+  requireAdmin,
+  upload.single('image'),  
+  async (req, res) => {
   const { title, description, price, type } = req.body;
-  const imageUrl = path.join('uploads/images', req.file.filename);
+ const imageUrl = path.join('uploads/images', req.file.filename);
 
   try {
     const newProduct = new Product({
