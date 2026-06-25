@@ -2,9 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from "../../components/Card.jsx";
 import BuyButton from "../../components/BuyButton.jsx";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/cartSlice";
 
 const CardList = () => {
   const [products, setProducts] = useState([]);
+
+  const dispatch = useDispatch();
 
   // Функція для завантаження продуктів з MongoDB
   const fetchProducts = async () => {
@@ -36,7 +40,7 @@ const CardList = () => {
           price={product.price}
          // buyButton={<BuyButton onBuy={() => console.log(`Куплено товар ${product.title}`)} />} // <------------ don't put componet as props use children instead
         >
-          <BuyButton onBuy={() => console.log(`Куплено товар ${product.title}`)} />
+          <BuyButton onBuy={() => dispatch(addItem(product))} />
           
           </Card>
       ))}

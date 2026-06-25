@@ -1,13 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
 const InputFields = () => {
+
+  const { id } = useParams();
+  const isEdit = Boolean(id);
+ 
+  const navigate = useNavigate();
+
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [image, setImage] = useState(null);
   const [type, setType] = useState("");
 
+  //  data for  EDIT
+useEffect(() => {
+  if (!isEdit) return;
+
+  const loadProduct = async () => {
+    try {
+      const res = await axios.get("/api/products");
+
+      const product = res.data.find((p) => p._id === id);
+
+      if (product) {
+        setTitle(product.title);
+        setDescription(product.description);
+        setPrice(product.price);
+        setType(product.type);
+      }
+    } catch (error) {
+      console.error("Помилка завантаження:", error);
+    }
+  };
+
+  loadProduct();
+}, [id, isEdit]);
+
+  //  SUBMIT (CREATE / UPDATE)
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,13 +53,26 @@ const InputFields = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.post("/api/products/add", formData, {
-        headers: {
-          "Authorization": "Bearer " + token
-        }
-      });
+      let response;
 
-      console.log("Відповідь сервера:", response.data);
+      if (isEdit) {
+        response = await axios.put(`/api/products/${id}`, formData, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+      } else {
+        response = await axios.post("/api/products/add", formData, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+      }
+
+      console.log("SUCCESS:", response.data);
+
+      //  redirect after succes
+      navigate("/products");
     } catch (error) {
       console.error(
         "Помилка відправлення:",
@@ -38,6 +83,8 @@ const InputFields = () => {
 
   return (
     <div className="inputContainer">
+      <h2>{isEdit ? "Edit Product" : "Add Product"}</h2>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label>Заголовок</label>
@@ -74,7 +121,6 @@ const InputFields = () => {
           <input
             type="file"
             onChange={(e) => setImage(e.target.files[0])}
-            required
           />
         </div>
 
@@ -92,7 +138,9 @@ const InputFields = () => {
           </select>
         </div>
 
-        <button type="submit">Відправити</button>
+        <button type="submit">
+          {isEdit ? "Оновити" : "Створити"}
+        </button>
       </form>
     </div>
   );

@@ -61,8 +61,9 @@ function App() {
         <Route path="/wearProducts" element={<ContainerWearProduct />} />
         <Route path="/test" element={<SleepProductPage />} />
         <Route path="/empty" element={<EmptyShoppingCurt />} />
-        <Route path="/login" element={<Login onLogin={handleLogin} />}
-/>
+        <Route path="/login" element={<Login onLogin={handleLogin} />}/>
+        <Route path="/editProduct/:id" element={<ProtectedRoute user={user}> <InputFields isEdit={true} /> </ProtectedRoute>}/>
+
 
       </Routes>
 

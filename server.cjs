@@ -53,6 +53,7 @@ if (!fs.existsSync(uploadPath)) {
 }
 app.use("/uploads", express.static("uploads"));
 
+console.log("PRODUCT ROUTES CONNECTED");
 // API-маршрути
 app.use("/api/products", productRoutes);
 app.get("/example", (req, res) => {
