@@ -10,12 +10,46 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 20vh;
+  height: 13vh;
   position: fixed;
   z-index: 1000;
   background-color: white;
   width: 100%;
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.cartIconWrapper {
+  display: flex;
+}
+
+.cart ul li {
+      display: flex;
+      align-items: center;
+}
+.cart ul li img {
+  width: 50px;
+
+}
+
+.cart ul li button{
+  background-color: var(--main-color);
+  border-radius: 30%;
+}
+
+.cartCountBadge {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  background-color: #ff4b4b;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  justify-content: center;
 }
 
 .logo img {
@@ -26,6 +60,7 @@
 .navigationContainerHeader a {
   color: grey;
   text-decoration: none;
+  align-items: center;
   font-weight: bold;
   margin: 10px;
   transition: color 0.2s ease;
@@ -504,7 +539,7 @@
 
 .navigationContainerHeader {
   display: flex;
-  justify-content: space-around;
+  width: 500px;
 }
 
 .navigationContainerHeader a:hover,
@@ -518,3 +553,154 @@
   height: 35px;
   border-radius: 50%;
 }
+
+.navigationContainerHeader button{ 
+background-color: var(--main-color);
+color: white;
+border-radius: 15px;
+height: 35px;
+width: 60px;
+margin: 10px;
+border: none;
+}
+
+.product-type-nav { 
+  display: flex;
+  width: 60%;
+  justify-content: space-around;
+}
+
+.product-type-nav button {
+  width: 100px;
+  height: 50px;
+  border: #c8c6c6 1px;
+  border-radius: 25px;
+  font-size: medium;
+
+}
+
+.product-type-nav button:hover{
+  background: linear-gradient(to right, #ffc266, var(--main-color), #cc6300);
+}
+
+.authTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.authTabs button {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  border: 1px solid #d9d9d9;
+  background: #ffffff;
+  color: #555;
+  cursor: pointer;
+
+  transition: all .25s ease;
+}
+
+.authTabs button:hover {
+  background: #f7f7f7;
+  border-color: #ffb45c;
+  color: var(--main-color);
+}
+
+.authTabs button.active {
+  border: none;
+  color: white;
+  background: linear-gradient(
+      to right,
+      #ffc266,
+      var(--main-color),
+      #cc6300
+  );
+}
+
+
+.cartIconWrapper {
+  position: relative;
+  width: 50px;
+  height: 50px;
+}
+
+.cartDropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cart-item-image {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cartCountBadge {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.backToShopping { 
+  display: flex;
+  justify-content: center;
+}
+
+.backToShopping span { 
+background: linear-gradient(to right, #ffc266, var(--main-color), #cc6300);
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  border-radius: 10px;
+}
+
+.loginContainer {
+  padding: 10% 10%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginContainer form {
+  display: flex;
+  justify-content: space-around;
+    flex-direction: column;
+    width: 200px;
+    height: 100px;
+}
+
+.loginContainer form input { 
+  height: 20px;
+  border-radius: 10px;
+}
+
+.loginContainer form button {
+  border-radius: 10px;
+}  

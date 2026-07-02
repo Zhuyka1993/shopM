@@ -2,6 +2,8 @@ import React from "react";
 import Card from "./Card";
 import dogImage from '../images/dog.png';
 import BallAnimation from "./AnimationBall";
+import { Link } from "react-router-dom";
+
 
 
 const EmptyShoppingCurt = () => {
@@ -16,6 +18,9 @@ const EmptyShoppingCurt = () => {
         <BallAnimation/>
         <Card isEmpty={true} image={dogImage} />
       </div>
+   </div>
+   <div className="backToShopping">
+    <span><Link to="/">Back to shopping</Link></span>
    </div>
    </>
   );

@@ -4,26 +4,32 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development node server.js",
-    "start:prod": "cross-env NODE_ENV=production node server.js",
+    "start:dev": "cross-env NODE_ENV=development node server.cjs",
+    "start:prod": "cross-env NODE_ENV=production node server.cjs",
     "start": "webpack serve --mode development --open",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "eject": "react-scripts eject",
-    "start-server": "node server.js"
+    "start-server": "node server.cjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
     "axios": "^1.7.9",
+    "bcrypt": "^6.0.0",
     "body-parser": "^1.20.3",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.13.1",
     "multer": "^1.4.5-lts.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2"
   },
   "devDependencies": {
@@ -35,6 +41,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
     "html-webpack-plugin": "^5.6.3",
+    "nodemon": "^3.1.14",
     "react-refresh": "^0.14.2",
     "style-loader": "^4.0.0",
     "webpack": "^5.96.1",
