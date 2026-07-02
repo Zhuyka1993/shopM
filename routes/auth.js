@@ -28,15 +28,32 @@ router.post("/register", async (req, res) => {
       role: "user",
     });
 
-    res.status(201).json({
-      message: "User registered successfully",
-      user: {
-        id: user._id,
-        email: user.email,
-        name: user.name,
-        role: user.role,
-      },
-    });
+const accessToken = jwt.sign(
+  { userId: user._id, role: user.role },
+  process.env.JWT_ACCESS_SECRET,
+  { expiresIn: "15m" }
+);
+
+const refreshToken = jwt.sign(
+  { userId: user._id },
+  process.env.JWT_REFRESH_SECRET,
+  { expiresIn: "7d" }
+);
+
+res.cookie("refreshToken", refreshToken, {
+  httpOnly: true,
+  sameSite: "lax",
+});
+
+res.status(201).json({
+  accessToken,
+  user: {
+    id: user._id,
+    email: user.email,
+    name: user.name,
+    role: user.role,
+  },
+});
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Server error" });
